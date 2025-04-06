@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Résolvez les énigmes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 500px;
+      text-align: left;
+    }
+    h1 {
+      text-align: center;
+    }
+    .enigme {
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .message {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Résolvez les 4 énigmes</h1>
+
+    <div class="enigme">
+      <strong>Énigme 1 :</strong>
+      <p>Combien de cocktails contenant du Baileys sont présents sur la carte ?</p>
+      <input type="text" id="enigme1" placeholder="Votre réponse">
+    </div>
+
+    <div class="enigme">
+      <strong>Énigme 2 :</strong>
+      <p>Combien de fromages différents peut-on trouver sur la carte ?</p>
+      <input type="text" id="enigme2" placeholder="Votre réponse">
+    </div>
+
+    <div class="enigme">
+      <strong>Énigme 3 :</strong>
+      <p>Combien de cocktails contiennent à la fois un alcool fort, un ingrédient de fruit frais et un sirop de fruit ?</p>
+      <input type="text" id="enigme3" placeholder="Votre réponse">
+    </div>
+
+    <div class="enigme">
+      <strong>Énigme 4 :</strong>
+      <p>On commande un Perrier, une Anoseké 25cl, un thé fruits rouges, et une glace 2 boules praliné/framboise. Combien chacun paie à 4 si on coupe à parts égales ?</p>
+      <input type="text" id="enigme4" placeholder="Votre réponse">
+    </div>
+
+    <button onclick="verifyAnswers()">Valider les réponses</button>
+    <p id="errorMessage" class="message"></p>
+  </div>
+
+  <script>
+    function verifyAnswers() {
+      const answers = ["0", "7", "2", "4"];
+      const userAnswers = [
+        document.getElementById("enigme1").value.trim(),
+        document.getElementById("enigme2").value.trim(),
+        document.getElementById("enigme3").value.trim(),
+        document.getElementById("enigme4").value.trim()
+      ];
+
+      const errorMessage = document.getElementById("errorMessage");
+
+      const isCorrect = userAnswers.every((ans, i) => ans === answers[i]);
+
+      if (isCorrect) {
+        window.location.href = "codePage.html";
+      } else {
+        errorMessage.textContent = "Certaines réponses sont incorrectes. Réessaie !";
+      }
+    }
+  </script>
+</body>
+</html>

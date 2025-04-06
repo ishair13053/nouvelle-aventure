@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entrer le code</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Entrez le code à 4 chiffres</h2>
+    <p>Le code est basé sur les 4 réponses précédentes.</p>
+    <input type="text" id="codeInput" placeholder="Ex : 1234" maxlength="4">
+    <button onclick="verifyCode()">Valider</button>
+    <p id="errorMessage" class="message"></p>
+  </div>
+
+  <script>
+    function verifyCode() {
+      const code = document.getElementById("codeInput").value;
+      const errorMessage = document.getElementById("errorMessage");
+
+      if (code === "0724") {
+        window.location.href = "success.html";
+      } else {
+        errorMessage.textContent = "Code incorrect. Essaie encore.";
+      }
+    }
+  </script>
+</body>
+</html>

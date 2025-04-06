@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Succès !</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #e8ffe8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 600px;
+      max-width: 90%;
+      text-align: center;
+    }
+    h1 {
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+    .typing {
+      font-size: 18px;
+      color: #333;
+      white-space: pre-wrap;
+      border-right: 2px solid #333;
+      display: inline-block;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #333; }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Bravo !</h1>
+    <p id="message" class="typing"></p>
+  </div>
+
+  <script>
+    const text = "Bravo t'es trop forte mablonde !!!\nMais t'as pas encore tout à fait fini,\nregarde dans la poche intérieure de ma veste 😉";
+    const messageEl = document.getElementById("message");
+    let index = 0;
+
+    function typeWriter() {
+      if (index < text.length) {
+        messageEl.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
